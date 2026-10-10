@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#0a0a0a" />
+    <meta name="description" content="Mohd Numaan — freelance video editor, graphic designer, and web creator behind Dripitair." />
+    <title>Mohd Numaan — Video Editor &amp; Graphic Designer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Space+Grotesk:wght@400;500&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header">
+      <a class="wordmark" href="#top" aria-label="Numaan, back to top">NUMAAN<span>.</span></a>
+      <button class="nav-toggle" id="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav">
+        <span>MENU</span><span class="nav-toggle-mark" aria-hidden="true">+</span>
+      </button>
+      <nav class="primary-nav" id="primary-nav" aria-label="Main navigation">
+        <a href="#work">WORK</a>
+        <a href="websites.html">WEBSITES</a>
+        <a href="#thumbnails">THUMBNAILS</a>
+        <a href="#design">DESIGN</a>
+        <a href="#experience">EXPERIENCE</a>
+        <a href="#about">ABOUT</a>
+        <a href="#contact">CONTACT</a>
+      </nav>
+      <a class="resume-nav" href="assets/resume/MOHD_NUMAAN_RESUME_2026.pdf.pdf" download>
+        RESUME <span aria-hidden="true">↗</span>
+      </a>
+    </header>
+
+    <main id="main">
+      <section class="hero section-shell" id="top" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="eyebrow"><span class="eyebrow-dot"></span> DRIPITAIR · FREELANCE CREATIVE <span class="eyebrow-year">2026</span></p>
+          <h1 id="hero-title">MOHD<br /><span>NUMAAN<span class="orange-period">.</span></span></h1>
+          <p class="hero-role">VIDEO EDITOR <span>&amp;</span> GRAPHIC DESIGNER</p>
+          <p class="hero-intro">I shoot and edit videos, create visual identities and build digital experiences through Dripitair.</p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#work">VIEW MY WORK <span aria-hidden="true">↘</span></a>
+            <a class="button button-text" href="assets/resume/MOHD_NUMAAN_RESUME_2026.pdf.pdf" download>DOWNLOAD RESUME <span aria-hidden="true">↗</span></a>
+            <a class="button button-text button-whatsapp" href="https://wa.me/919205286465" target="_blank" rel="noopener noreferrer" aria-label="Message Mohd Numaan on WhatsApp">
+              <svg class="button-icon" aria-hidden="true" viewBox="0 0 24 24"><use href="#icon-whatsapp"></use></svg>
+              WHATSAPP
+            </a>
+          </div>
+          <p class="hero-location"><span>BASED IN</span> HYDERABAD, INDIA</p>
+        </div>
+        <figure class="hero-visual" data-reveal>
+          <img src="assets/backgrounds/ORANGE_BACKGROUND_01.png" alt="Mohd Numaan working on a laptop" fetchpriority="high" />
+        </figure>
+        <div class="hero-footnote"><span>SELECTED WORK</span><span>SCROLL TO EXPLORE <span aria-hidden="true">↓</span></span></div>
+      </section>
+
+      <section class="section-shell section-work" id="work" aria-labelledby="work-title">
+        <div class="section-heading" data-reveal>
+          <div>
+            <p class="eyebrow">01 / MOVING IMAGE</p>
+            <h2 id="work-title">SELECTED VIDEO<br /><span>WORK</span></h2>
+            <p class="video-section-intro">Short-form edits, on-location shoots and colour work, shaped with a focus on story and pacing.</p>
+          </div>
+          <p class="section-aside">FROM FIRST FRAME<br />TO FINAL CUT.</p>
+        </div>
+        <div class="video-carousel">
+          <div class="video-grid" id="video-grid" role="region" aria-label="Selected video projects" tabindex="0"></div>
+          <div class="video-carousel-controls">
+            <span class="video-carousel-count" id="video-carousel-count" aria-live="polite">01 / 10</span>
+            <div class="video-carousel-pagination" id="video-carousel-pagination" role="group" aria-label="Choose a video project"></div>
+            <div class="video-carousel-arrows">
+              <button class="video-carousel-arrow" id="video-carousel-prev" type="button" aria-label="Previous video">←</button>
+              <button class="video-carousel-arrow" id="video-carousel-next" type="button" aria-label="Next video">→</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="results-band" id="results" aria-labelledby="results-title">
+        <div class="section-shell results-inner">
+          <div class="results-heading" data-reveal>
+            <p class="eyebrow">02 / PERFORMANCE</p>
+            <h2 id="results-title">WORK THAT<br /><span>CONNECTS.</span></h2>
+            <p>Selected client results and verified creative output.</p>
+          </div>
+          <div class="results-list" id="results-list"></div>
+        </div>
+      </section>
+
+      <section class="section-shell gallery-section" id="thumbnails" aria-labelledby="vertical-title">
+        <div class="section-heading gallery-heading" data-reveal>
+          <div>
+            <p class="eyebrow">03 / SELECTED DESIGN</p>
+            <h2 id="vertical-title">SELECTED<br /><span>THUMBNAILS</span></h2>
+          </div>
+        </div>
+        <div class="gallery-carousel">
+          <div class="gallery-grid vertical-grid" id="vertical-gallery" role="region" aria-label="Vertical thumbnail designs" tabindex="0"></div>
+          <div class="video-carousel-controls gallery-carousel-controls">
+            <span class="video-carousel-count gallery-carousel-count" data-gallery-count aria-live="polite">01 / 24</span>
+            <div class="video-carousel-pagination gallery-carousel-pagination" data-gallery-pagination role="group" aria-label="Choose a vertical thumbnail"></div>
+            <div class="video-carousel-arrows gallery-carousel-arrows">
+              <button class="video-carousel-arrow gallery-carousel-arrow" data-gallery-prev type="button" aria-label="Previous vertical thumbnail">←</button>
+              <button class="video-carousel-arrow gallery-carousel-arrow" data-gallery-next type="button" aria-label="Next vertical thumbnail">→</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-shell gallery-section horizontal-section" id="design" aria-labelledby="horizontal-title">
+        <div class="section-heading gallery-heading" data-reveal>
+          <div>
+            <p class="eyebrow">04 / SELECTED DESIGN</p>
+            <h2 id="horizontal-title">SELECTED<br /><span>DESIGNS</span></h2>
+          </div>
+        </div>
+        <div class="gallery-carousel">
+          <div class="gallery-grid horizontal-grid" id="horizontal-gallery" role="region" aria-label="Horizontal thumbnail designs" tabindex="0"></div>
+          <div class="video-carousel-controls gallery-carousel-controls">
+            <span class="video-carousel-count gallery-carousel-count" data-gallery-count aria-live="polite">01 / 16</span>
+            <div class="video-carousel-pagination gallery-carousel-pagination" data-gallery-pagination role="group" aria-label="Choose a horizontal thumbnail"></div>
+            <div class="video-carousel-arrows gallery-carousel-arrows">
+              <button class="video-carousel-arrow gallery-carousel-arrow" data-gallery-prev type="button" aria-label="Previous horizontal thumbnail">←</button>
+              <button class="video-carousel-arrow gallery-carousel-arrow" data-gallery-next type="button" aria-label="Next horizontal thumbnail">→</button>
+            </div>
+          </div>
+        </div>
+        <div class="poster-block">
+          <div class="poster-heading" data-reveal>
+            <p class="eyebrow">05 / SELECTED DESIGN</p>
+            <h3>POSTER <span>DESIGNS</span></h3>
+          </div>
+          <div class="gallery-carousel">
+            <div class="gallery-grid poster-grid" id="poster-gallery" role="region" aria-label="Poster designs" tabindex="0"></div>
+            <div class="video-carousel-controls gallery-carousel-controls">
+              <span class="video-carousel-count gallery-carousel-count" data-gallery-count aria-live="polite">01 / 04</span>
+              <div class="video-carousel-pagination gallery-carousel-pagination" data-gallery-pagination role="group" aria-label="Choose a poster design"></div>
+              <div class="video-carousel-arrows gallery-carousel-arrows">
+                <button class="video-carousel-arrow gallery-carousel-arrow" data-gallery-prev type="button" aria-label="Previous poster">←</button>
+                <button class="video-carousel-arrow gallery-carousel-arrow" data-gallery-next type="button" aria-label="Next poster">→</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="experience-section" id="experience" aria-labelledby="experience-title">
+        <div class="section-shell">
+          <div class="section-heading" data-reveal>
+            <div>
+              <p class="eyebrow">06 / CAREER</p>
+              <h2 id="experience-title">PROFESSIONAL<br /><span>EXPERIENCE</span></h2>
+            </div>
+            <p class="section-aside">DESIGN.<br />EDIT.<br />DELIVER.</p>
+          </div>
+          <div class="experience-list">
+            <article class="experience-row" data-reveal>
+              <p class="experience-date">JAN 2025 — PRESENT</p>
+              <div class="experience-role"><h3>Dripitair</h3><p>Freelance Video Editor &amp; Shooter</p></div>
+              <p class="experience-detail">Through my freelance brand Dripitair, I shoot and edit client videos from the first on-location footage through the finished cut.</p>
+            </article>
+            <article class="experience-row" data-reveal>
+              <p class="experience-date">12 DEC 2025 — PRESENT</p>
+              <div class="experience-role"><h3>Narayana Infra</h3><p>Video Editor &amp; Graphic Designer</p></div>
+              <p class="experience-detail">Create and edit videos, social media creatives, YouTube thumbnails, advertisements and promotional content. Shoot on-location footage and produce brochures, Instagram posts and other branding materials.</p>
+            </article>
+            <article class="experience-row" data-reveal>
+              <p class="experience-date">JUL 2025 — 11 DEC 2025</p>
+              <div class="experience-role"><h3>Labh NexGen</h3><p>Designer · Event Management</p></div>
+              <p class="experience-detail">Created event posters and digital creatives for Birla Opus Paints corporate events, with designs for LinkedIn and Instagram.</p>
+            </article>
+            <article class="experience-row" data-reveal>
+              <p class="experience-date">APR 2025 — JUN 2025</p>
+              <div class="experience-role"><h3>Ayaat Ads</h3><p>Graphic Designer</p></div>
+              <p class="experience-detail">Designed digital advertisements, posters and event branding visuals, working with marketing teams on consistent brand materials.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-shell about-section" id="about" aria-labelledby="about-title">
+        <div class="about-visual" data-reveal>
+          <img src="assets/backgrounds/ORANGE_BACKGROUND_02.png" alt="Mohd Numaan in an orange sweatshirt" loading="lazy" />
+        </div>
+        <div class="about-copy" data-reveal>
+          <p class="eyebrow">07 / A LITTLE ABOUT ME</p>
+          <h2 id="about-title">I SHOOT.<br /><span>I EDIT.</span></h2>
+          <p class="about-lede">I’m Mohd Numaan, a Hyderabad-based video shooter, editor and graphic designer working through my creative brand, Dripitair.</p>
+          <p>I take client videos from filming through the final edit, and create visual design and websites with a focus on clear storytelling.</p>
+          <div class="about-personal">
+            <p class="about-note-label">OUTSIDE WORK</p>
+            <p>I’m into photography, filming and gaming, and I enjoy exploring game mods and mechanics in my free time.</p>
+          </div>
+          <p class="about-capabilities">Video production · Graphic design · Website projects · Social content · AI-assisted workflows</p>
+        </div>
+      </section>
+
+      <section class="resume-section" id="resume" aria-labelledby="resume-title">
+        <div class="section-shell resume-inner" data-reveal>
+          <div>
+            <p class="eyebrow">08 / THE DETAILS</p>
+            <h2 id="resume-title">MORE ABOUT<br /><span>ME.</span></h2>
+            <p>Explore my professional experience, skills and background.</p>
+          </div>
+          <a class="button button-primary button-large" href="assets/resume/MOHD_NUMAAN_RESUME_2026.pdf.pdf" download>DOWNLOAD RESUME <span aria-hidden="true">↗</span></a>
+        </div>
+      </section>
+
+      <section class="section-shell contact-section" id="contact" aria-labelledby="contact-title">
+        <p class="eyebrow">09 / GET IN TOUCH</p>
+        <h2 id="contact-title">LET’S WORK<br /><span>TOGETHER.</span></h2>
+        <div class="contact-bottom">
+          <p>Available for freelance video shoots, editing and design projects through Dripitair.</p>
+          <nav class="contact-details" id="contact-details" aria-label="Contact and social links"></nav>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer section-shell">
+      <a class="wordmark" href="#top">DRIPITAIR<span>.</span></a>
+      <p>VIDEO EDITOR &amp; GRAPHIC DESIGNER</p>
+      <a href="#top">BACK TO TOP ↑</a>
+    </footer>
+
+    <dialog class="viewer-dialog" id="image-viewer" aria-label="Image preview">
+      <div class="viewer-toolbar"><p id="image-caption"></p><button class="viewer-close" type="button" data-close="image-viewer" aria-label="Close image preview">CLOSE <span aria-hidden="true">×</span></button></div>
+      <figure class="image-viewer-figure"><img id="viewer-image" alt="" /><figcaption id="viewer-image-caption"></figcaption></figure>
+    </dialog>
+    <dialog class="viewer-dialog video-dialog" id="video-viewer" aria-label="Video player">
+      <div class="viewer-toolbar"><p id="video-caption"></p><button class="viewer-close" type="button" data-close="video-viewer" aria-label="Close video player">CLOSE <span aria-hidden="true">×</span></button></div>
+      <div class="video-frame-wrap"><iframe id="video-frame" title="Selected video project" allow="fullscreen; picture-in-picture" allowfullscreen loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe></div>
+    </dialog>
+    <svg class="icon-sprite" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+      <symbol id="icon-whatsapp" viewBox="0 0 24 24">
+        <path d="M20.5 11.7a8.5 8.5 0 0 1-12.6 7.4L4 20l.9-3.8a8.5 8.5 0 1 1 15.6-4.5Z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" />
+        <path d="M8.4 7.9c-.3.2-.8.8-.8 1.6s.5 1.7.6 1.9c.1.2 1.5 2.5 3.8 3.4 1.9.8 2.3.6 2.7.6.4-.1 1.2-.5 1.4-1 .2-.5.2-.9.1-1s-.3-.2-.6-.4l-1.4-.7c-.2-.1-.4-.1-.5.1l-.7.9c-.1.2-.3.2-.5.1-.3-.1-1-.4-1.8-1.1-.7-.6-1.1-1.4-1.3-1.7-.1-.2 0-.3.1-.4l.4-.5c.1-.1.2-.3.2-.4.1-.2 0-.3 0-.5l-.6-1.5c-.2-.4-.4-.4-.6-.4h-.5Z" fill="currentColor" />
+      </symbol>
+      <symbol id="icon-mail" viewBox="0 0 24 24">
+        <rect x="3" y="5" width="18" height="14" rx="2.5" fill="none" stroke="currentColor" stroke-width="1.7" />
+        <path d="m4 7 8 6 8-6" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" />
+      </symbol>
+      <symbol id="icon-instagram" viewBox="0 0 24 24">
+        <rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="1.7" />
+        <circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.7" />
+        <circle cx="17.6" cy="6.5" r="1" fill="currentColor" />
+      </symbol>
+      <symbol id="icon-linkedin" viewBox="0 0 24 24">
+        <path d="M5.2 8.7H2.5V21h2.7V8.7ZM3.9 2.5a1.6 1.6 0 1 0 0 3.2 1.6 1.6 0 0 0 0-3.2ZM21.5 13.9c0-3.7-2-5.4-4.7-5.4a4.1 4.1 0 0 0-3.7 2v-1.8h-2.7V21h2.7v-6.1c0-1.6.3-3.1 2.3-3.1s2 1.8 2 3.2V21h2.7l.1-7.1Z" fill="currentColor" />
+      </symbol>
+    </svg>
+  </body>
+</html>
