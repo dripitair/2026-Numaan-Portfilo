@@ -1368,6 +1368,45 @@ img {
   border: 0;
 }
 
+.video-playback-fallback {
+  display: grid;
+  grid-template-columns: 3.1rem minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 0.8rem;
+  margin-top: 0.85rem;
+  padding: 0.7rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: rgba(255, 255, 255, 0.035);
+}
+
+.video-playback-fallback > img {
+  width: 3.1rem;
+  aspect-ratio: 9 / 16;
+  border-radius: 0.4rem;
+  object-fit: cover;
+}
+
+.video-playback-fallback-copy .eyebrow {
+  margin: 0 0 0.2rem;
+  color: var(--orange);
+  font-size: 0.58rem;
+}
+
+.video-playback-fallback-copy > p:last-child {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.72rem;
+  line-height: 1.4;
+}
+
+.video-playback-fallback .button {
+  min-height: 40px;
+  padding: 0.6rem 0.8rem;
+  font-size: 0.58rem;
+  white-space: nowrap;
+}
+
 [data-reveal] {
   opacity: 1;
   transform: none;
@@ -1942,6 +1981,20 @@ img {
 
   .image-viewer-figure img {
     max-height: calc(100dvh - 7.3rem);
+  }
+
+  .video-playback-fallback {
+    grid-template-columns: 2.55rem minmax(0, 1fr);
+    gap: 0.65rem;
+  }
+
+  .video-playback-fallback > img {
+    width: 2.55rem;
+  }
+
+  .video-playback-fallback .button {
+    grid-column: 2;
+    justify-self: start;
   }
 }
 

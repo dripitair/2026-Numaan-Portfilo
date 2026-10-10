@@ -231,6 +231,14 @@
     <dialog class="viewer-dialog video-dialog" id="video-viewer" aria-label="Video player">
       <div class="viewer-toolbar"><p id="video-caption"></p><button class="viewer-close" type="button" data-close="video-viewer" aria-label="Close video player">CLOSE <span aria-hidden="true">×</span></button></div>
       <div class="video-frame-wrap"><iframe id="video-frame" title="Selected video project" allow="fullscreen; picture-in-picture" allowfullscreen loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe></div>
+      <div class="video-playback-fallback">
+        <img id="video-fallback-poster" alt="" />
+        <div class="video-playback-fallback-copy">
+          <p class="eyebrow">LOCAL PREVIEW</p>
+          <p>If the Drive player won’t load, use this poster and open the original clip directly.</p>
+        </div>
+        <a id="video-open-drive" class="button" href="#" target="_blank" rel="noopener noreferrer">OPEN IN DRIVE <span aria-hidden="true">↗</span></a>
+      </div>
     </dialog>
     <svg class="icon-sprite" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
       <symbol id="icon-whatsapp" viewBox="0 0 24 24">

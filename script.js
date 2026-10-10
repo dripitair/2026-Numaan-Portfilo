@@ -173,6 +173,17 @@ const posterDesigns = [
   { name: "POSTER_DESIGN_4.jpg", id: "1FfsF0djGYxCChJVzI3QBS5Aen5RaWdZk" },
 ];
 
+function addLocalGalleryPaths(items, folder) {
+  return items.map((item) => ({
+    ...item,
+    localSrc: `${folder}/${item.name.replace(/\.[^.]+$/, ".webp")}`,
+  }));
+}
+
+const localVerticalThumbnails = addLocalGalleryPaths(verticalThumbnails, "assets/gallery/vertical");
+const localHorizontalThumbnails = addLocalGalleryPaths(horizontalThumbnails, "assets/gallery/horizontal");
+const localPosterDesigns = addLocalGalleryPaths(posterDesigns, "assets/gallery/posters");
+
 function makeElement(tagName, className, text) {
   const element = document.createElement(tagName);
   if (className) element.className = className;
@@ -429,18 +440,25 @@ function setupGalleryCarousel(selector, items, name) {
 
   allSlides[0].dataset.carouselClone = "previous";
   allSlides[allSlides.length - 1].dataset.carouselClone = "next";
-  allSlides.forEach((slide) => {
-    const image = slide.querySelector("img");
-    if (!image) return;
-    image.addEventListener("error", () => {
-      const item = items[Number(slide.dataset.galleryIndex)];
-      slide.classList.add("image-unavailable");
-      image.remove();
-      if (!slide.querySelector(".image-fallback")) {
-        slide.append(makeElement("span", "image-fallback", `${item.name} · preview unavailable`));
-      }
-    }, { once: true });
-  });
+  track.addEventListener("error", (event) => {
+    const image = event.target;
+    if (!(image instanceof HTMLImageElement)) return;
+    const slide = image.closest(".gallery-item");
+    if (!slide || !track.contains(slide)) return;
+    const item = items[Number(slide.dataset.galleryIndex)];
+
+    if (item?.localSrc && image.dataset.localFallbackTried !== "true") {
+      image.dataset.localFallbackTried = "true";
+      image.src = item.localSrc;
+      return;
+    }
+
+    slide.classList.add("image-unavailable");
+    image.remove();
+    if (!slide.querySelector(".image-fallback")) {
+      slide.append(makeElement("span", "image-fallback", `${item?.name || "Image"} · preview unavailable`));
+    }
+  }, true);
   track.replaceChildren(...allSlides);
 
   const dots = items.map((item, index) => {
@@ -601,8 +619,17 @@ function renderContact() {
 function openImage(item) {
   const dialog = document.querySelector("#image-viewer");
   const image = document.querySelector("#viewer-image");
-  const source = thumbnailSource(item, 1600);
-  image.src = source;
+  image.dataset.localFallbackTried = "false";
+  image.classList.remove("is-unavailable");
+  image.onerror = () => {
+    if (item.localSrc && image.dataset.localFallbackTried !== "true") {
+      image.dataset.localFallbackTried = "true";
+      image.src = item.localSrc;
+      return;
+    }
+    image.classList.add("is-unavailable");
+  };
+  image.src = thumbnailSource(item, 1600);
   image.alt = item.name;
   document.querySelector("#image-caption").textContent = item.name;
   document.querySelector("#viewer-image-caption").textContent = item.name;
@@ -612,8 +639,14 @@ function openImage(item) {
 function openVideo(project) {
   const dialog = document.querySelector("#video-viewer");
   const frame = document.querySelector("#video-frame");
+  const fallbackPoster = document.querySelector("#video-fallback-poster");
+  const driveLink = document.querySelector("#video-open-drive");
   document.querySelector("#video-caption").textContent = project.title;
   frame.title = project.title;
+  fallbackPoster.src = project.poster;
+  fallbackPoster.alt = `${project.title} local poster preview`;
+  driveLink.href = `https://drive.google.com/file/d/${encodeURIComponent(project.driveId)}/view`;
+  driveLink.setAttribute("aria-label", `Open ${project.title} on Google Drive`);
   frame.src = DRIVE.preview(project.driveId);
   showDialog(dialog);
 }
@@ -640,8 +673,15 @@ function setupDialogs() {
     });
     dialog.addEventListener("close", () => {
       document.body.classList.remove("dialog-open");
-      if (dialog.id === "video-viewer") document.querySelector("#video-frame").src = "";
-      if (dialog.id === "image-viewer") document.querySelector("#viewer-image").removeAttribute("src");
+      if (dialog.id === "video-viewer") {
+        document.querySelector("#video-frame").src = "";
+        document.querySelector("#video-fallback-poster").removeAttribute("src");
+      }
+      if (dialog.id === "image-viewer") {
+        const image = document.querySelector("#viewer-image");
+        image.removeAttribute("src");
+        image.onerror = null;
+      }
     });
   });
 }
@@ -683,12 +723,12 @@ function setupRevealMotion() {
 renderVideos();
 setupVideoCarousel();
 renderResults();
-renderGallery(verticalThumbnails, "#vertical-gallery", "vertical-item", "Selected vertical thumbnail design");
-renderGallery(horizontalThumbnails, "#horizontal-gallery", "horizontal-item", "Selected horizontal design");
-renderGallery(posterDesigns, "#poster-gallery", "poster-item", "Selected poster design");
-setupGalleryCarousel("#vertical-gallery", verticalThumbnails, "vertical thumbnail");
-setupGalleryCarousel("#horizontal-gallery", horizontalThumbnails, "horizontal thumbnail");
-setupGalleryCarousel("#poster-gallery", posterDesigns, "poster design");
+renderGallery(localVerticalThumbnails, "#vertical-gallery", "vertical-item", "Selected vertical thumbnail design");
+renderGallery(localHorizontalThumbnails, "#horizontal-gallery", "horizontal-item", "Selected horizontal design");
+renderGallery(localPosterDesigns, "#poster-gallery", "poster-item", "Selected poster design");
+setupGalleryCarousel("#vertical-gallery", localVerticalThumbnails, "vertical thumbnail");
+setupGalleryCarousel("#horizontal-gallery", localHorizontalThumbnails, "horizontal thumbnail");
+setupGalleryCarousel("#poster-gallery", localPosterDesigns, "poster design");
 renderContact();
 setupDialogs();
 setupNavigation();
