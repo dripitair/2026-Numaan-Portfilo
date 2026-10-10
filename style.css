@@ -828,6 +828,7 @@ img {
   --gallery-slide-width: 16rem;
   position: relative;
   display: flex;
+  align-items: center;
   width: 100%;
   gap: clamp(0.75rem, 1.8vw, 1.25rem);
   margin-inline: auto;
@@ -867,6 +868,7 @@ img {
   display: block;
   flex: 0 0 var(--gallery-slide-width);
   width: var(--gallery-slide-width);
+  aspect-ratio: var(--gallery-image-ratio, 1);
   min-width: 0;
   overflow: hidden;
   padding: 0;
@@ -883,6 +885,7 @@ img {
 }
 
 .gallery-item img {
+  display: block;
   width: 100%;
   height: 100%;
   object-fit: contain;
@@ -978,11 +981,11 @@ img {
 }
 
 .vertical-item {
-  aspect-ratio: 0.68;
+  --gallery-image-ratio: 0.5625;
 }
 
 .horizontal-item {
-  aspect-ratio: 16 / 9;
+  --gallery-image-ratio: 1.7778;
 }
 
 .poster-block {
@@ -1010,7 +1013,7 @@ img {
 }
 
 .poster-item {
-  aspect-ratio: 0.72;
+  --gallery-image-ratio: 0.72;
 }
 
 .experience-section {

@@ -440,6 +440,14 @@ function setupGalleryCarousel(selector, items, name) {
 
   allSlides[0].dataset.carouselClone = "previous";
   allSlides[allSlides.length - 1].dataset.carouselClone = "next";
+  function applyImageRatio(image) {
+    if (!(image instanceof HTMLImageElement) || !image.naturalWidth || !image.naturalHeight) return;
+    const slide = image.closest(".gallery-item");
+    if (!slide || !track.contains(slide)) return;
+    slide.style.setProperty("--gallery-image-ratio", `${image.naturalWidth} / ${image.naturalHeight}`);
+  }
+
+  track.addEventListener("load", (event) => applyImageRatio(event.target), true);
   track.addEventListener("error", (event) => {
     const image = event.target;
     if (!(image instanceof HTMLImageElement)) return;
@@ -460,6 +468,7 @@ function setupGalleryCarousel(selector, items, name) {
     }
   }, true);
   track.replaceChildren(...allSlides);
+  allSlides.forEach((slide) => applyImageRatio(slide.querySelector("img")));
 
   const dots = items.map((item, index) => {
     const dot = makeElement("button", "video-carousel-dot gallery-carousel-dot");
